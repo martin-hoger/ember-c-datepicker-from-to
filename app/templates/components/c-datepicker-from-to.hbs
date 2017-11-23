@@ -1,0 +1,21 @@
+<form class="ui form">
+
+<i class="calendar icon"></i>
+
+&nbsp;
+
+{{pikaday-input
+    onSelection=(action 'setDateFrom')
+    value=storage.datepickerDateFrom
+    useUTC=true
+    format="DD.MM.YYYY"
+}}
+
+{{pikaday-input
+    onSelection=(action 'setDateTo')
+    value=storage.datepickerDateTo
+    useUTC=true
+    format="DD.MM.YYYY"
+}}
+
+</form>

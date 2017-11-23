@@ -1,0 +1,6 @@
+.datepicker-from-to form > .ember-view  { display: inline;width: 120px !important;vertical-align: middle;text-align: center; }
+.datepicker-from-to form > i            { position: relative; top: 12px; left: 8px; width: 30px; }
+.datepicker-from-to .form-field-item,
+.datepicker-from-to .form-field-wrapper { width: auto;margin: 0;}
+
+
