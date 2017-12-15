@@ -18,4 +18,9 @@
     format="DD.MM.YYYY"
 }}
 
+{{#if presets}}
+  <button {{action "setDateByButton" 1}}>Minulý měsíc</button>
+  <button {{action "setDateByButton" 0}}>Tento měsíc</button>
+{{/if}}
+
 </form>
