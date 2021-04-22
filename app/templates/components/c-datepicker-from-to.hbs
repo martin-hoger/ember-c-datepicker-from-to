@@ -4,14 +4,14 @@
 
 {{pikaday-input
     onSelection=(action 'setDateFrom')
-    value=storage.datepickerDateFrom
+    value=(get storage fieldNameFrom)
     useUTC=true
     format="DD.MM.YYYY"
 }}
 
 {{pikaday-input
     onSelection=(action 'setDateTo')
-    value=storage.datepickerDateTo
+    value=(get storage fieldNameTo)
     useUTC=true
     format="DD.MM.YYYY"
 }}
