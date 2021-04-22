@@ -23,6 +23,7 @@ export default Ember.Component.extend({
   classNames: ['datepicker-from-to'],
   // should show preset buttons?
   presets       : false,
+  calendarIcon  : true,  // default: show calendar icon
   // Possible to pass field names for dateFrom, but default is:
   fieldNameFrom : 'datepickerDateFrom',
   fieldNameTo   : 'datepickerDateTo',
