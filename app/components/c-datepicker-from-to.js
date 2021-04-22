@@ -14,6 +14,7 @@ export default Ember.Component.extend({
   classNames: ['datepicker-from-to'],
   // should show preset buttons?
   presets   : false,
+  calendarIcon: true,  // default: show calendar icon
 
   storage: {},
 

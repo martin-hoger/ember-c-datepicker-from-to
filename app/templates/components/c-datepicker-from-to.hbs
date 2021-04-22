@@ -1,4 +1,6 @@
-<i class="calendar icon"></i>
+{{#if calendarIcon}}
+  <i class="calendar icon"></i>
+{{/if}}
 
 {{pikaday-input
     onSelection=(action 'setDateFrom')
@@ -18,4 +20,3 @@
   <button {{action "setDateByButton" 1}}>Minulý měsíc</button>
   <button {{action "setDateByButton" 0}}>Tento měsíc</button>
 {{/if}}
-
