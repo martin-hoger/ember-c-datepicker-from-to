@@ -3,18 +3,20 @@
 {{/if}}
 
 {{pikaday-input
-    onSelection=(action 'setDateFrom')
-    value=(get storage fieldNameFrom)
-    useUTC=true
-    format="DD.MM.YYYY"
+  onSelection=(action 'setDateFrom')
+  value=(get storage fieldNameFrom)
+  useUTC=true
+  format=format
 }}
 
-{{pikaday-input
+{{#if (not singleDate)}}
+  {{pikaday-input
     onSelection=(action 'setDateTo')
     value=(get storage fieldNameTo)
     useUTC=true
-    format="DD.MM.YYYY"
-}}
+    format=format
+  }}
+{{/if}}
 
 {{#if presets}}
   <button {{action "setDateByButton" 1}}>Minulý měsíc</button>

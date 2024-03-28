@@ -14,12 +14,22 @@ Recomended to use class="ui input"
   fieldNameFrom="dateFrom"
   fieldNameTo="dateTo"
 }}
+
+Selecting whole month (beginning and end of the the month):
+{{c-datepicker-from-to
+  storage=session.statsBrokerCommentRatings
+  presets=true
+  dateChanged=(route-action "dateChanged")
+  format="MM.YYYY"
+  singleDate=true
+  class="ui field input width-50-percent"
+}}
 */
 
-import Ember from 'ember';
+import Component from '@ember/component';
 import moment from 'moment';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['datepicker-from-to'],
   // should show preset buttons?
   presets       : false,
@@ -27,13 +37,23 @@ export default Ember.Component.extend({
   // Possible to pass field names for dateFrom, but default is:
   fieldNameFrom : 'datepickerDateFrom',
   fieldNameTo   : 'datepickerDateTo',
+  // Default: use two datepickers 'from', 'to'. With singleDate=true only one datepicker is shown
+  // and whole month is used: dateFrom is 1.1. and dateTo is 31.1. (beginning and end of the the month)
+  singleDate    : false,
 
   storage: {},
 
   actions: {
 
     setDateFrom: function(date) {
-      this.set('storage.' + this.get('fieldNameFrom'), moment(date).format('YYYY-MM-DD'));
+      console.log('date', date);
+      // If single date, select whole month:
+      if (this.get('singleDate')) {
+        this.set('storage.' + this.get('fieldNameFrom'), moment(date).startOf('month').format('YYYY-MM-DD'));
+        this.set('storage.' + this.get('fieldNameTo'), moment(date).endOf('month').format('YYYY-MM-DD'));
+      } else { // otherwise set date from:
+        this.set('storage.' + this.get('fieldNameFrom'), moment(date).format('YYYY-MM-DD'));
+      }
       this.sendAction('dateChanged');
     },
 
