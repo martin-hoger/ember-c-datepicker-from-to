@@ -46,7 +46,6 @@ export default Component.extend({
   actions: {
 
     setDateFrom: function(date) {
-      console.log('date', date);
       // If single date, select whole month:
       if (this.get('singleDate')) {
         this.set('storage.' + this.get('fieldNameFrom'), moment(date).startOf('month').format('YYYY-MM-DD'));
