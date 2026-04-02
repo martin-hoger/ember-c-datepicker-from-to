@@ -1,0 +1,17 @@
+<form class="ui form small" id="admin-stats-select-date">
+  {{c-datepicker-from-to storage=storage class="ui input" dateChanged=dateChanged}}
+
+  {{#c-dropdown-menu
+      icon="ellipsis vertical"
+      textAlign="left"
+      menuAlign="right"
+      fontSize=13
+  }}
+    {{#if allowClear}}
+      <a class="item" {{action "selectYear" null}}>✖ Zrušit výběr</a>
+    {{/if}}
+    {{#each years as |year|}}
+      <a class="item" {{action "selectYear" year}}>{{year}}</a>
+    {{/each}}
+  {{/c-dropdown-menu}}
+</form>
