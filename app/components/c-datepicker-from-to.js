@@ -32,19 +32,19 @@ import moment from 'moment';
 export default Component.extend({
   classNames: ['datepicker-from-to'],
   // should show preset buttons?
-  presets       : false,
-  calendarIcon  : true,  // default: show calendar icon
+  presets         : false,
+  calendarIcon    : true,  // default: show calendar icon
   // Possible to pass field names for dateFrom, but default is:
-  fieldNameFrom : 'datepickerDateFrom',
-  fieldNameTo   : 'datepickerDateTo',
+  fieldNameFrom   : 'datepickerDateFrom',
+  fieldNameTo     : 'datepickerDateTo',
   // Default: use two datepickers 'from', 'to'. With singleDate=true only one datepicker is shown
   // and whole month is used: dateFrom is 1.1. and dateTo is 31.1. (beginning and end of the the month)
-  singleDate    : false,
-
-  storage: {},
+  singleDate      : false,
+  placeholderFrom : null,
+  placeholderTo   : null,
+  storage         : {},
 
   actions: {
-
     setDateFrom: function(date) {
       // If single date, select whole month:
       if (this.get('singleDate')) {
